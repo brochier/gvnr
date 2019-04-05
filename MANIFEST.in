@@ -1,0 +1,3 @@
+recursive-include gvnr/resources *
+include gvnr/conf.yml
+include README.md
