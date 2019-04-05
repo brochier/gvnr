@@ -3,7 +3,7 @@ https://arxiv.org/pdf/1902.11004.pdf
 
 ### To run the experiments presented in the paper:
 
-You need python 3.6 installed on your computer with pip. Optionnaly create a new environnement (with conda):
+You need python 3.6 installed on your computer with pip. Optionally create a new environment (with conda):
     
     conda create --name gvnr python=3.6 pip
     
