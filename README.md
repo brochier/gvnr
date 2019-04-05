@@ -3,8 +3,12 @@ https://arxiv.org/pdf/1902.11004.pdf
 
 ### To run the experiments presented in the paper:
 
-You need python 3.6 installed on your computer with pip. Then run in a new environnement:
+You need python 3.6 installed on your computer with pip. Optionnaly create a new environnement (with conda):
     
+    conda create --name gvnr python=3.6 pip
+    
+Then run:
+
     git clone https://github.com/brochier/gvnr
     cd gvnr
     pip install -r requirements.txt 
