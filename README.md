@@ -14,7 +14,7 @@ Then run:
     pip install -r requirements.txt 
     python scripts/eval.py -h
     
-The file `scripts/eval.py` accepts the arguments *--save* (to export the embeddings) *--method* (to select a particular algorithm) and *--dataset* (to select a particular dataset).
+The file [`scripts/eval.py`](https://github.com/brochier/gvnr/blob/master/scripts/eval.py) accepts the arguments *--save* (to export the embeddings) *--method* (to select a particular algorithm) and *--dataset* (to select a particular dataset).
 
 
 ### To install gvnr as a package:
@@ -23,7 +23,9 @@ pip install the repository:
 
     pip install git+git://github.com/brochier/gvnr.git
     
-The file `scripts/example.py` provides an example how to use the package:
+The notebook [`notebook/karate.py`](https://github.com/brochier/gvnr/blob/master/notebook/karate.ipynb) provides an example how to use the package with an external CSV file (Zachary's karate club adjacency matrix).
+    
+The file [`scripts/example.py`](https://github.com/brochier/gvnr/blob/master/scripts/example.py) provides an example how to use the package:
 
 ```python
 """
