@@ -23,7 +23,7 @@ pip install the repository:
 
     pip install git+git://github.com/brochier/gvnr.git
     
-The notebook [`notebook/karate.py`](https://github.com/brochier/gvnr/blob/master/notebook/karate.ipynb) provides an example how to use the package with an external CSV file (Zachary's karate club adjacency matrix).
+The notebook [`notebook/karate.ipynb`](https://github.com/brochier/gvnr/blob/master/notebook/karate.ipynb) provides an example how to use the package with an external CSV file (Zachary's karate club adjacency matrix).
     
 The file [`scripts/example.py`](https://github.com/brochier/gvnr/blob/master/scripts/example.py) provides an example how to use the package:
 
