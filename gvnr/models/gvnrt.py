@@ -40,6 +40,7 @@ class Model(object):
                  learn_rate, # initial learning rate for gradient descent
                  j_vector_size, # dim of output vectors
                  i_index_size, # number of nodes in input space
+                 pretrained_word_embeddings=None
                 ):
 
         self.embedding_size = embedding_size
@@ -63,8 +64,13 @@ class Model(object):
         self.bi = tf.nn.embedding_lookup(self.IB, self.indexI, name="bi")
 
         self.vectorJ = tf.sparse_placeholder(tf.float32, name="inputJ")
-        self.JW = tf.Variable(
-            tf.random_uniform([self.j_vector_size, self.embedding_size], -self.init_range, self.init_range), name="JW")
+        if pretrained_word_embeddings is None:
+            self.JW = tf.Variable(
+                tf.random_uniform([self.j_vector_size, self.embedding_size], -self.init_range, self.init_range), name="JW")
+        else:
+            self.W = tf.Variable(pretrained_word_embeddings,
+                                 name="JW",
+                                 trainable=True)
 
 
         lookup = tf.sparse_tensor_dense_matmul(self.vectorJ, self.JW, adjoint_a=False, adjoint_b=False, name="wj")
@@ -165,6 +171,7 @@ class gvnrt:
     def fit(self,
             X,
             M,
+            pretrained_word_embeddings = None,
             embedding_size = 80,
             batch_size = 128,
             n_epochs = 4,
@@ -215,7 +222,9 @@ class gvnrt:
                       embedding_size = self.embedding_size,
                       learn_rate = self.learn_rate,
                       j_vector_size = self.j_vector_size,
-                      i_index_size = self.i_index_size)
+                      i_index_size = self.i_index_size,
+                      pretrained_word_embeddings = pretrained_word_embeddings,
+                )
                 lr = 0
                 init_op = tf.global_variables_initializer()
                 self.session.run(init_op)

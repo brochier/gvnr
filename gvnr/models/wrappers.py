@@ -223,7 +223,7 @@ class gvnrt_wrapper(object):
     def __init__(self, X=None):
         self.X = X
 
-    def fit_predict(self, features, adjacency_matrix):
+    def fit_predict(self, features, adjacency_matrix, pretrained_word_embeddings=None):
         adjacency_matrix = scipy.sparse.csr_matrix(adjacency_matrix)
         features = scipy.sparse.csr_matrix(features)
         nodes_number = adjacency_matrix.shape[0]
@@ -249,6 +249,7 @@ class gvnrt_wrapper(object):
 
         model.fit(X,
                   features,
+                  pretrained_word_embeddings=pretrained_word_embeddings,
                   learn_rate=0.001,
                   embedding_size=80,
                   batch_size=batch_size,
