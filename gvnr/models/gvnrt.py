@@ -68,7 +68,7 @@ class Model(object):
             self.JW = tf.Variable(
                 tf.random_uniform([self.j_vector_size, self.embedding_size], -self.init_range, self.init_range), name="JW")
         else:
-            self.W = tf.Variable(pretrained_word_embeddings,
+            self.JW = tf.Variable(pretrained_word_embeddings,
                                  name="JW",
                                  trainable=True)
 
