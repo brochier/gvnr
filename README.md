@@ -1,5 +1,5 @@
-## **gvnr**: python package for the paper "Global Vectors for Node Representation" (WWW19)
-https://arxiv.org/pdf/1902.11004.pdf
+## Python package for the paper [Global Vectors for Node Representation](https://arxiv.org/pdf/1902.11004.pdf) (WWW19)
+
 
 ### To run the experiments presented in the paper:
 
@@ -139,7 +139,7 @@ logger.info("   ".join(["&{0:.1f}".format(s*100) for s in list(scores["f1_micro"
 
 
 
-### Citation
+### Citing
 
 If you use this code, please consider citing the paper:
 

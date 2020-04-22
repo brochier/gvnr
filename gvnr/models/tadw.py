@@ -2,7 +2,9 @@ import numpy as np
 from sklearn.preprocessing import normalize
 
 import logging
+
 logger = logging.getLogger()
+
 
 class TADW(object):
 
@@ -23,7 +25,7 @@ class TADW(object):
         self.adj = adjacency_matrix
         self.adj = self.adj / self.adj.sum(axis=1)
         # M=(A+A^2)/2 where A is the row-normalized adjacency matrix
-        self.M = (self.adj + np.dot(self.adj, self.adj)) / 2 # TODO: add bypass for any type of matrix
+        self.M = (self.adj + np.dot(self.adj, self.adj)) / 2
         # T is feature_size*node_num, text features
         self.T = svd_vectors.T
         self.node_size = self.adj.shape[0]

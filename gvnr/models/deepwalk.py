@@ -271,15 +271,15 @@ class WalksCorpus(object):
           yield line.split()
 
 
-def run(adjacency_matrix):
+def run(adjacency_matrix, embedding_size=80):
     logger.debug("Walking Deepwalk...")
     adjacency_matrix = scipy.sparse.csr_matrix(adjacency_matrix)
     G = from_numpy(adjacency_matrix)
     walks = build_deepwalk_corpus(G, num_paths=80, path_length=40, alpha=0, rand=random.Random())
     logger.debug("Training Deepwalk...")
     logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.CRITICAL)
-    model = Word2Vec(walks, size=80, window=5, min_count=0, sg=1, hs=0, negative=10, workers=10)
-    vectors = np.zeros((adjacency_matrix.shape[0], 80))
+    model = Word2Vec(walks, size=160, window=5, min_count=0, sg=1, hs=0, negative=10, workers=10)
+    vectors = np.zeros((adjacency_matrix.shape[0], 160))
     for i in range(adjacency_matrix.shape[0]):
         vectors[i] = model.wv.get_vector(str(i))
     return normalize(vectors, axis=0)
